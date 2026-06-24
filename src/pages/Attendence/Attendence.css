@@ -1,0 +1,491 @@
+/* Attendance.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #4c6ef5;
+  --primary-light: #748ffc;
+  --primary-dark: #364fc7;
+  --secondary: #5c7cfa;
+  --text-dark: #2b2d42;
+  --text-medium: #4a4e69;
+  --text-light: #868e96;
+  --bg-light: #f8f9fa;
+  --border: #e9ecef;
+  --success: #40c057;
+  --warning: #fcc419;
+  --danger: #fa5252;
+  --excellent: #20c997;
+}
+
+.attendance-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.attendance-header {
+  margin-bottom: 2rem;
+}
+
+.attendance-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.highlight {
+  color: var(--primary);
+  position: relative;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background-color: rgba(76, 110, 245, 0.2);
+  z-index: -1;
+  border-radius: 3px;
+}
+
+.attendance-header p {
+  color: var(--text-medium);
+  font-size: 1.1rem;
+}
+
+/* Summary Cards */
+.summary-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.summary-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  font-size: 1.5rem;
+  color: white;
+}
+
+.summary-icon span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.total .summary-icon {
+  background: var(--primary);
+  box-shadow: 0 4px 12px rgba(76, 110, 245, 0.2);
+}
+
+.attended .summary-icon {
+  background: var(--success);
+  box-shadow: 0 4px 12px rgba(64, 192, 87, 0.2);
+}
+
+.percentage .summary-icon {
+  background: var(--excellent);
+  box-shadow: 0 4px 12px rgba(32, 201, 151, 0.2);
+}
+
+.missed .summary-icon {
+  background: var(--danger);
+  box-shadow: 0 4px 12px rgba(250, 82, 82, 0.2);
+}
+
+.summary-content {
+  flex: 1;
+}
+
+.summary-label {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.summary-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.total .summary-value {
+  color: var(--primary);
+}
+
+.attended .summary-value {
+  color: var(--success);
+}
+
+.missed .summary-value {
+  color: var(--danger);
+}
+
+.progress-bar-container {
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--excellent);
+  border-radius: 4px;
+}
+
+/* Attendance Tabs */
+.attendance-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.tab-button:hover {
+  color: var(--primary);
+}
+
+.tab-button.active {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+}
+
+/* Tab Content */
+.tab-content {
+  margin-bottom: 2rem;
+}
+
+.tab-content h3 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+/* Course Cards */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.course-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-light);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.course-header:hover {
+  background: #f1f3f9;
+}
+
+.course-info h4 {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.course-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-medium);
+}
+
+.attendance-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+}
+
+.attendance-percentage {
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.attendance-percentage.excellent {
+  background: rgba(32, 201, 151, 0.1);
+  color: var(--excellent);
+}
+
+.attendance-percentage.good {
+  background: rgba(64, 192, 87, 0.1);
+  color: var(--success);
+}
+
+.attendance-percentage.warning {
+  background: rgba(252, 196, 25, 0.1);
+  color: var(--warning);
+}
+
+.attendance-percentage.danger {
+  background: rgba(250, 82, 82, 0.1);
+  color: var(--danger);
+}
+
+.expand-icon {
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Course Details */
+.course-details {
+  padding: 1.5rem;
+  background: white;
+}
+
+.detailed-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-item span:first-child {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  margin-bottom: 0.25rem;
+}
+
+.stat-item span:last-child {
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin: 1.5rem 0 1rem;
+}
+
+/* Sessions Table */
+.sessions-table {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-weight: 600;
+  color: var(--text-dark);
+  background: var(--bg-light);
+}
+
+tr:hover {
+  background: var(--bg-light);
+}
+
+.status-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.status-badge.present {
+  background: rgba(64, 192, 87, 0.1);
+  color: var(--success);
+}
+
+.status-badge.absent {
+  background: rgba(250, 82, 82, 0.1);
+  color: var(--danger);
+}
+
+.time {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+}
+
+.reason {
+  font-size: 0.9rem;
+  color: var(--danger);
+  font-style: italic;
+}
+
+/* Previous Courses Table */
+.course-table {
+  overflow-x: auto;
+}
+
+/* Action Bar */
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.request-button {
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.request-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 110, 245, 0.2);
+}
+
+.export-options {
+  display: flex;
+  gap: 1rem;
+}
+
+.export-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+  color: var(--text-medium);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.export-button:hover {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .summary-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .attendance-tabs {
+    flex-wrap: wrap;
+  }
+  
+  .tab-button {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+  
+  .course-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .attendance-stats {
+    align-items: flex-start;
+    width: 100%;
+  }
+  
+  .action-bar {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .export-options {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .export-button {
+    flex: 1;
+    justify-content: center;
+  }
+}

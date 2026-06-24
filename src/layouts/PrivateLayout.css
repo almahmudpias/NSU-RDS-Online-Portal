@@ -1,0 +1,21 @@
+.private-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main-content-with-sidebar {
+  display: flex;
+  flex: 1;
+  margin-top: 0px; /* Header height */
+  margin-bottom: 50px; /* Footer height */
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+  margin-left: 10px; /* Sidebar width */
+  overflow-x: hidden;
+  min-height: calc(100vh - 120px); /* 100vh - header - footer */
+}

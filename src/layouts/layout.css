@@ -1,0 +1,75 @@
+.bg {
+  background-image: url('../assets/back.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Creates parallax effect on scroll */
+  height: 100vh; /* Use viewport units for full height */
+  width: 100vw; /* Use viewport units for full width */
+  position: fixed; /* Fixed positioning for background */
+  top: 0;
+  left: 0;
+  z-index: -1;
+  
+  /* Modern filter effects */
+  filter: brightness(0.95) contrast(1.05);
+  
+  /* Smooth transitions for any filter changes */
+  transition: filter 0.5s ease-in-out;
+  
+  /* Performance optimizations */
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  
+  /* Animation */
+  animation: fadeInBackground 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Hover effects for interactive feel */
+@media (hover: hover) {
+  .bg:hover {
+    filter: brightness(1) contrast(1.1);
+  }
+}
+
+/* Enhanced animation with more professional timing */
+@keyframes fadeInBackground {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Optional: Add overlay for better content readability */
+.bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg, 
+    rgba(0, 0, 0, 0.2) 0%, 
+    rgba(0, 0, 0, 0.1) 50%, 
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  z-index: -1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .bg {
+    background-attachment: scroll; /* Disable parallax on mobile */
+    animation: fadeInBackground 1s ease-out forwards;
+  }
+}

@@ -1,0 +1,112 @@
+/* ===================== */
+/* FOOTER STYLES */
+/* ===================== */
+
+/**
+ * Base Footer Styles
+ * Fixed position at bottom with gradient accent
+ */
+.footer {
+  /* Layout & Positioning */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  
+  /* Visual Styling */
+  background-color: #003366;
+  color: white;
+  
+  /* Typography */
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+  letter-spacing: 0.025em;
+  
+  /* Spacing */
+  padding: 0.5rem 0;
+  margin: 0;
+}
+
+/**
+ * Gradient Accent Line
+ * Animated horizontal rule above footer content
+ */
+.footer-line {
+  /* Dimensions & Positioning */
+  width: 80%;
+  height: 3px;
+  margin: 0 auto 0.5rem;
+  
+  /* Visual Effects */
+  background: linear-gradient(90deg, 
+    #00f0ff, 
+    #8a2be2, 
+    #ff00cc
+  );
+  background-size: 200% auto;
+  border-radius: 4px;
+  
+  /* Animation */
+  animation: gradientSlide 4s linear infinite;
+}
+
+@keyframes gradientSlide {
+  0% { background-position: 0% 50% }
+  100% { background-position: 100% 50% }
+}
+
+/**
+ * Footer Text Elements
+ */
+.footer-text {
+  /* Typography */
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #4364F7;
+  
+  /* Spacing */
+  margin: 0.25rem 0;
+}
+
+/**
+ * Animated NSU IT Text
+ */
+.glow {
+  /* Typography */
+  color: #00ffe5;
+  font-weight: 700;
+  text-transform: uppercase;
+  
+  /* Animation */
+  animation: textGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 
+      0 0 5px rgba(0, 255, 229, 0.7), 
+      0 0 10px rgba(0, 255, 229, 0.5);
+  }
+  to {
+    text-shadow: 
+      0 0 10px rgba(0, 255, 255, 0.9), 
+      0 0 20px rgba(0, 255, 255, 0.7);
+  }
+}
+
+/* ===================== */
+/* RESPONSIVE ADJUSTMENTS */
+/* ===================== */
+@media (max-width: 768px) {
+  .footer-line {
+    width: 90%;
+    height: 2px;
+  }
+  
+  .footer-text {
+    font-size: 0.875rem;
+  }
+}
